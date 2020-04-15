@@ -1,0 +1,28 @@
+html
+    if data.loggedin
+        include headers/loggedin.pug
+    else
+        include headers/loggedout.pug
+
+    body
+    h1 OrderId = #{data._id}
+    br
+    h Restaurant name: #{data.order.restaurantName}
+    br
+    h placed by: #{data.username}
+    br
+    br
+    h Order contents:
+        div
+            br
+            each or in data.order.order
+                h Item: #{or.name} x #{or.quantity}
+                br
+        br
+    h Subtotal = #{data.order.subtotal}
+    br
+    h Tax = #{data.order.tax}
+    br
+    h Delivery fee = #{data.order.fee}
+    br
+    h Total = #{data.order.total}

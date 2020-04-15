@@ -1,0 +1,30 @@
+html
+    if data.loggedin
+        include headers/loggedin.pug
+    else
+        include headers/loggedout.pug
+    body
+        br
+        br
+        h Username: #{data.user}
+        br
+        br
+        - var toshow = data.prof
+        if toshow
+            h Current privacy Setting : #{data.privacy}
+            br
+            form(method ='POST' action='/changePrivacy')
+                div
+                    p Privacy settings
+                    input(type='radio' id='yes'  name='privacy' value="yes" checked='')
+                    label(for='yes') Yes 
+                    input(type='radio' id='no'  name='privacy' value= "no")
+                    label(for='no') No
+                button(type='submit') save
+        br
+        div
+            h order history:
+            br
+            each orderid in data.restaurant
+                a(href = "/orders/"+ orderid._id) #{orderid._id}
+                br

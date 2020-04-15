@@ -1,0 +1,11 @@
+html
+    if data.loggedin
+        include headers/loggedin.pug
+    else
+        include headers/loggedout.pug
+    body
+    
+        each user in data.users
+            if !user.privacy
+                a(href = '/users/'+user._id) #{user.username}
+                br

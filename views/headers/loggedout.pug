@@ -1,0 +1,14 @@
+head
+	a(href = "/" style={"white-space": "nowrap"}) Home 
+	a(href = "/users" style={ "padding": "14px 25px"}) Users
+	a(href = "/register" style={"white-space": "nowrap"}) Register
+	br
+	br
+	form(method='POST' action='/login')
+		div
+			label(for='username') username
+			input(type='text' id='username' placeholder='username' name='username')
+		div
+			label(for='password') Password
+			input(type='password' id='password' placeholder='password' name='password')
+		button(type='submit') Log in 
